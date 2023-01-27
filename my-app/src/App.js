@@ -1,6 +1,9 @@
 import logo from './logo.svg';
 import './App.css';
 
+// components
+import CustomForm from './components/CustomForm';
+
 function App() {
   return (
     <div className="App">
