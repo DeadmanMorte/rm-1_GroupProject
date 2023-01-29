@@ -40,7 +40,7 @@ const CustomForm = ({ addTask }) => {
                 aria-label="Add Task"
                 type="submit"
                 >
-                    <PlusIcon/>
+                    {/*<PlusIcon/>*/}
                 </button>
         </form>
     )

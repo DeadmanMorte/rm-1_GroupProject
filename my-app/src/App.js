@@ -3,27 +3,22 @@ import './App.css';
 
 // components
 import CustomForm from './components/CustomForm';
-
+import Navbar from './components/Navbar';
+import CheckLists from './components/CheckLists';
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="MyCheckLists">
+      <h1>Let's Get Started</h1>
+      <Navbar />
+      <h1>My To-Do Lists</h1>
+      <CheckLists />
+      </div>
     </div>
   );
 }
 
 
 export default App;
+
+//SFC+TAB
