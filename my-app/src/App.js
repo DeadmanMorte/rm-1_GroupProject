@@ -1,7 +1,3 @@
-import logo from './logo.svg';
-import './App.css';
-
-// components
 import CustomForm from './components/CustomForm';
 import Navbar from './components/Navbar';
 import CheckLists from './components/CheckLists';
@@ -21,4 +17,3 @@ function App() {
 
 export default App;
 
-//SFC+TAB
