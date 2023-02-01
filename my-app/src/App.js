@@ -7,7 +7,7 @@ function App() {
       <div className="MyCheckLists">
       <h1>Let's Get Started</h1>
       <Navbar />
-      <h1>My To-Do Lists</h1>
+      <h1>My Lists</h1>
       <CheckLists />
       </div>
     </div>

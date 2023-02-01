@@ -2,9 +2,9 @@ import { useState } from "react"
 import {TodoList} from "./toDoList"
 const CheckLists = () => {
     const [lists, setLists] = useState([
-      { ListName: 'Finish Front End', Task1: 'lorem ipsum...', Task2: 'lorem ipsum', Task3: 'lorem ipsum', Task4: 'lorem ipsum', id: 1 },
-      { ListName: 'Finish Back End', Task1: 'lorem ipsum...', Task2: 'lorem ipsum', Task3: 'lorem ipsum', Task4: 'lorem ipsum', id: 2 },
-      { ListName: 'Finish Data Base', Task1: 'lorem ipsum...', Task2: 'lorem ipsum', Task3: 'lorem ipsum', Task4: 'lorem ipsum', id: 3 }
+      { ListName: 'To Do List', Task1: 'lorem ipsum...', Task2: 'lorem ipsum', Task3: 'lorem ipsum', Task4: 'lorem ipsum', id: 1 },
+      { ListName: 'Shopping List', Task1: 'lorem ipsum...', Task2: 'lorem ipsum', Task3: 'lorem ipsum', Task4: 'lorem ipsum', id: 2 },
+      { ListName: 'To Chat List', Task1: 'lorem ipsum...', Task2: 'lorem ipsum', Task3: 'lorem ipsum', Task4: 'lorem ipsum', id: 3 }
     ]);
 
     return(
