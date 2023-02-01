@@ -1,5 +1,5 @@
 import { useState } from "react"
-import TodoList from "./TodoList";
+import {TodoList} from "./toDoList"
 const CheckLists = () => {
     const [lists, setLists] = useState([
       { ListName: 'Finish Front End', Task1: 'lorem ipsum...', Task2: 'lorem ipsum', Task3: 'lorem ipsum', Task4: 'lorem ipsum', id: 1 },
