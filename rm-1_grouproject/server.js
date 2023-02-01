@@ -20,11 +20,15 @@ app.get('*', (req,res) => {
 });
 
 // CONTROLLERS
+app.use('/tobuy', require('./controllers/tobuy'));
+app.use('/todo', require('./controllers/todo'));
+app.use('/tochat', require('./controllers/tochat'));
+
 
 
 // LISTEN FOR CONNECTION
 app.listen(process.env.PORT, () => {
-    console.log(`Connected on port ${process.env.PORT}!`)
+    console.log(`Linked in on port ${process.env.PORT}!`)
 });
 
 

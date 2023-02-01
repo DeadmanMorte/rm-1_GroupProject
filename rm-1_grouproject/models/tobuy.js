@@ -5,7 +5,7 @@ const sequelize = new Sequelize(process.env.PG_URI);
 // MODEL 
 class ToBuy extends Model {
     static association(){
-        ToBuy.belongsTo({})
+        // ToBuy.belongsTo({})
     }
 };
 

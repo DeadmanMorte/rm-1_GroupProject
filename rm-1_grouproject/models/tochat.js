@@ -5,7 +5,7 @@ const sequelize = new Sequelize(process.env.PG_URI);
 // MODEL 
 class ToChat extends Model {
     static association(){
-        ToChat.belongsTo({})
+        // ToChat.belongsTo({})
     }
 };
 
