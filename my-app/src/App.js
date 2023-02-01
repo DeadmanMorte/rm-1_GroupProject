@@ -8,6 +8,7 @@ function App() {
       <h1>Let's Get Started</h1>
       <Navbar />
       <h1>My To-Do Lists</h1>
+      <CustomForm />
       <CheckLists />
       </div>
     </div>
