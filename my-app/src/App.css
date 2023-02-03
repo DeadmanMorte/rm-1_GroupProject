@@ -1,5 +1,5 @@
 body{
-    background-color: #17181f;
+    background-color: #aa480f;
     color: #ddd;
 }
 *{
@@ -10,14 +10,14 @@ main{
     margin: 20px auto;
 }
 form{
-    border: 3px solid #30313D;
+    border: 3px solid #0a1bd6;
     border-radius: 10px;
     padding: 5px;
     display:flex;
 }
 form input[type="text"] {
     background: none;
-    color:#fff;
+    color:rgb(19, 17, 17);
     border:0;
     padding: 0 8px;
     display:block;
@@ -31,7 +31,7 @@ form button{
 }
 
 div.task{
-    background-color: #30313D;
+    background-color: #0c1feb;
     border-radius: 10px;
     padding: 5px 9px;
     margin-top: 5px;
@@ -58,7 +58,7 @@ div.task span:before{
     display:block;
     width:0;
     height:1px;
-    background-color: #ddd;
+    background-color: rgb(218, 19, 19);
     position:absolute;
     top: 10px;
     transition: width .1s linear;
