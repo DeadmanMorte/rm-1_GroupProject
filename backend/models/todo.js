@@ -1,24 +1,33 @@
-// DEPENDENCIES
-const { Sequelize, DataTypes, Model } = require('sequelize');
-const sequelize = new Sequelize(process.env.PG_URI);
-
-// MODEL 
-class ToDo extends Model {
-    static association(){
-        // Todo.belongsTo({})
+'use strict';
+const {
+  Model
+} = require('sequelize');
+module.exports = (sequelize, DataTypes) => {
+  class ToDo extends Model {
+    /**
+     * Helper method for defining associations.
+     * This method is not a part of Sequelize lifecycle.
+     * The `models/index` file will call this method automatically.
+     */
+    static associate(models) {
+      // define association here
     }
-};
-
-ToDo.init({
-    todo_item:{
-        type:DataTypes.STRING,
-        allowNull:true
-    }
-}, {
+  }
+  ToDo.init({
+    todo_item: {
+        type: DataTypes.STRING,
+        allowNull: false
+    },
+    todo_id: {
+        type: DataTypes.INTEGER,
+        primaryKey:true,
+        autoIncrement:true
+    },
+  }, {
     sequelize,
     modelName: 'ToDo',
-    tableName: 'to_do_list'
-});
-
-// EXPORT 
-module.exports = ToDo;
+    tableName: 'to_do_list',
+    timestamps: false
+  });
+  return ToDo;
+};

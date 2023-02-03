@@ -2,11 +2,17 @@
 const express = require('express');
 const app = express();
 const {Sequelize} = require('sequelize');
+const todo = require('./controllers/todoController')
 
 // CONFIGURATION / MIDDLEWARE
 require('dotenv').config();
 app.use(express.json());
-app.use(express.urlencoded({ extended: true })); // may need to be false
+app.use(express.urlencoded({ extended: false })); // may need to be false
+try {
+    console.log(`Connected on ${process.env.PG_URI}`)
+} catch (err) {
+    console.log(`Unable to connect cause ${err}`)
+}
 
 // ROOT
 app.get('/', (req,res) => {
@@ -15,14 +21,15 @@ app.get('/', (req,res) => {
     })
 });
 
-app.get('*', (req,res) => {
-    res.status(404).render('error404')
-});
+// app.get('*', (req,res) => {
+//     res.status(404).render('error404')
+// });
 
 // CONTROLLERS
-app.use('/tobuy', require('./controllers/tobuy'));
-app.use('/todo', require('./controllers/todo'));
-app.use('/tochat', require('./controllers/tochat'));
+app.use('/tobuy', require('./controllers/tobuyController'));
+const todoController = require('./controllers/todoController');
+app.use('/todo', todoController);
+ app.use('/tochat', require('./controllers/tochatController'));
 
 
 

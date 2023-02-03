@@ -3,10 +3,12 @@ const db = require('../models');
 const { ToDo, ToChat, ToBuy } = db;
 const { Op } = require('sequelize');
 
+
 // READ
-todo.get('/', async (req,res) => {
+todo.get('/', async(req,res) => {
     try {
-        res.status(200).json
+        const foundItem = await ToDo.findAll()
+        res.status(200).json(foundItem)
     } catch (error) {
         res.status(500).json(error)
     }
