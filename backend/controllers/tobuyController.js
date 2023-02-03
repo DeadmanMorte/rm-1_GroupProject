@@ -1,10 +1,10 @@
-const todo = require('express').Router();
+const tobuy = require('express').Router();
 const db = require('../models');
 const { ToDo, ToChat, ToBuy } = db;
 const { Op } = require('sequelize');
 
 // READ
-todo.get('/', async (req,res) => {
+tobuy.get('/', async (req,res) => {
     try {
         res.status(200).json
     } catch (error) {
@@ -13,13 +13,13 @@ todo.get('/', async (req,res) => {
 });
 
 // CREATE
-todo.post('/', async(req,res) => {
+tobuy.post('/', async(req,res) => {
     try {
-        const newDo = await ToDo.create(req.body) 
+        const newBuy = await ToBuy.create(req.body) 
 
         res.status(200).json({
-            message: 'Successful appendage of todo!!',
-            data: newDo
+            message: 'Successful appendage of tobuy!!',
+            data: newBuy
         })
     } catch (error){
         res.status(500).json(error)
@@ -28,13 +28,13 @@ todo.post('/', async(req,res) => {
 
 
 // UPDATE
-todo.put('/:id', async (req,res) => {
+tobuy.put('/:id', async (req,res) => {
     try {
-        const reDo = await ToDo.update(req.body) 
+        const reBuy = await ToBuy.update(req.body) 
 
         res.status(200).json({
-            message: 'Successful ammendment of todo!!',
-            data: reDo
+            message: 'Successful ammendment of tobuy!!',
+            data: reBuy
         })
     } catch (error) {
         res.status(500).json(error)
@@ -43,16 +43,16 @@ todo.put('/:id', async (req,res) => {
 
 // DELETE
 
-todo.delete('/:id', async (req,res) => {
+tobuy.delete('/:id', async (req,res) => {
     try {
-        const noDo = await ToDo.destroy(req.body) 
+        const noBuy = await ToBuy.destroy(req.body) 
 
         res.status(200).json({
-            message: 'Successful abolition of todo!!',
+            message: 'Successful abolition of tobuy!!',
         })
     } catch (error) {
         res.status(500).json(error)
     }
 });
 
-module.exports = todo;
+module.exports = tobuy;
