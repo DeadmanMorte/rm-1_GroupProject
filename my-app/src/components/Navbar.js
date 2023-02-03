@@ -1,8 +1,10 @@
+import CustomForm from "./CustomForm";
 const Navbar = () => {
     return (
         <nav className="Lists">
-            <button><a href="/">My To-Do Lists</a></button>
-            <button><a href="/create">Create a To-Do List</a></button>
+            <h1>Let's Get Started</h1>
+            <CustomForm />
+            <button><a href="/">My To-Do List</a></button>
         </nav>
       );
 }

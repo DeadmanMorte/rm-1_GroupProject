@@ -5,6 +5,7 @@ import Task from "./components/Task";
 import {useEffect, useState} from "react";
 
 function App() {
+  // example
   const [tasks,setTasks] = useState([]);
 
   useEffect(() => {
@@ -51,8 +52,11 @@ function App() {
   }
 
   return (
+
     <main>
-      <h1>{numberComplete}/{numberTotal} Complete</h1>
+      <h1>My To Do List !</h1>
+      <h2>{numberComplete}/{numberTotal} Complete</h2>
+      
       
       <TaskForm onAdd={addTask} />
       {tasks.map((task,index) => (
@@ -62,6 +66,7 @@ function App() {
               onToggle={done => updateTaskDone(index, done)} />
       ))}
     </main>
+
   );
 }
 
