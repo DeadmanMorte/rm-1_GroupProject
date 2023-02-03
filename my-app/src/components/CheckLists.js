@@ -6,6 +6,7 @@ const CheckLists = () => {
       { ListName: 'Finish Back End', Task1: 'lorem ipsum...', Task2: 'lorem ipsum', Task3: 'lorem ipsum', Task4: 'lorem ipsum', id: 2 },
       { ListName: 'Finish Data Base', Task1: 'lorem ipsum...', Task2: 'lorem ipsum', Task3: 'lorem ipsum', Task4: 'lorem ipsum', id: 3 }
     ]);
+    
 
     return(
         <div className="checklists">
