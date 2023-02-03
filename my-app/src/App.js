@@ -51,6 +51,7 @@ function App() {
   }
 
   return (
+
     <main>
       <h1>{numberComplete}/{numberTotal} Complete</h1>
       
@@ -62,6 +63,7 @@ function App() {
               onToggle={done => updateTaskDone(index, done)} />
       ))}
     </main>
+
   );
 }
 
