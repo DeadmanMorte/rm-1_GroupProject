@@ -1,5 +1,5 @@
 body{
-    background-color: #aa480f;
+    background-color: #022d64;
     color: #ddd;
 }
 *{
@@ -10,14 +10,15 @@ main{
     margin: 20px auto;
 }
 form{
-    border: 3px solid #0a1bd6;
+    border: 3px solid #f7f7f8;
     border-radius: 10px;
     padding: 5px;
     display:flex;
 }
 form input[type="text"] {
+    font-size: 32px;
     background: none;
-    color:rgb(19, 17, 17);
+    color:rgb(255, 252, 252);
     border:0;
     padding: 0 8px;
     display:block;
@@ -31,7 +32,7 @@ form button{
 }
 
 div.task{
-    background-color: #0c1feb;
+    background-color: #161616;
     border-radius: 10px;
     padding: 5px 9px;
     margin-top: 5px;
@@ -82,4 +83,5 @@ button.trash{
     display:flex;
     cursor:pointer;
 }
+
 
