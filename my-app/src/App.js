@@ -3,6 +3,8 @@ import './App.css';
 import TaskForm from "./components/TaskForm";
 import Task from "./components/Task";
 import {useEffect, useState} from "react";
+import CustomForm from './components/CustomForm';
+
 
 function App() {
   // example
@@ -65,6 +67,7 @@ function App() {
               onTrash={() => removeTask(index)}
               onToggle={done => updateTaskDone(index, done)} />
       ))}
+      <CustomForm />
     </main>
 
   );

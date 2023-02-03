@@ -15,18 +15,28 @@ todo.get('/', async(req,res) => {
 });
 
 // CREATE
-todo.post('/newtodo', async(req,res) => {
-    try {
-        const newDo = await ToDo.create(req.body) 
+todo.post('/', async(req,res) => {
+//     try {
+//         const newDo = await ToDo.create(req.body) 
 
-        res.status(200).json({
-            message: 'Successful appendage of todo!!',
-            data: newDo
-        })
-    } catch (error){
-        res.status(500).json(error)
-    }
-});
+//         res.status(200).json({
+//             message: 'Successful appendage of todo!!',
+//             data: newDo
+//         })
+//     } catch (error){
+//         res.status(500).json(error)
+//     }
+// });
+try{
+
+    const {description} = req.body;
+    const newTodo = await ToDo.create({
+        todo_item: `${description}`});
+    res.json(newTodo.rows[0]);
+    window.location = '/'
+} catch (err) {
+    console.error(err.message)
+}})
 
 
 // UPDATE
