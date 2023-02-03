@@ -13,7 +13,7 @@ todo.get('/', async (req,res) => {
 });
 
 // CREATE
-todo.post('/', async(req,res) => {
+todo.post('/newtodo', async(req,res) => {
     try {
         const newDo = await ToDo.create(req.body) 
 
