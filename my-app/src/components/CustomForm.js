@@ -1,18 +1,23 @@
-import { useState } from "react";
+import React, { useState } from "react";
 
-const CustomForm = ({ addTask }) => {
-    const [task, setTask] = useState("");
+const CustomForm = () => {
+    const [description, setDescription] = useState("");
 
-    const handleFormSubmit = (e) => {
+    const handleFormSubmit = async(e) => {
         e.preventDefault();
-        addTask({
-            name: task,
-            checked: false,
-            id: Date.now()
-        })
-        setTask("")
-    }
+       try {
+        const body = {description};
+        const response = await fetch("http://localhost:5000/todos",{
+            method: "POST",
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify(body)
+        });
+        window.location ='/'
+        console.log(response);
+       } catch (err) {
 
+       }
+    }
     return (
         <form
         className="todo"
@@ -23,24 +28,20 @@ const CustomForm = ({ addTask }) => {
                 type="text"
                 id="task"
                 className="input"
-                value={task}
-                onInput={(e) => setTask(e.target.value)}
+                value={description}
+                onChange={(e) => setDescription(e.target.value)}
                 required
                 autoFocus
-                maxLength={60}
+                maxLength={250}
                 placeholder="Enter Task"
                 />
-                <label 
-                htmlFor="task"
-                className="label"
-                >Enter Task</label>
                 </div>
                 <button 
                 className="btn"
                 aria-label="Add Task"
                 type="submit"
                 >
-
+                Add Task
                 </button>
         </form>
     )
