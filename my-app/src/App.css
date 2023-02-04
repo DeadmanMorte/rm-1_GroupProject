@@ -1,5 +1,5 @@
 body{
-    background-color: #022d64;
+    background-color: #275e74;
     color: #ddd;
 }
 *{
@@ -84,4 +84,13 @@ button.trash{
     cursor:pointer;
 }
 
-
+#root {
+    box-shadow: -1px 4px 20px 14px rgb(0 0 0 / 10%);
+    border-radius: 10px;
+    max-width: 50%;
+    width: 500px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    
+}

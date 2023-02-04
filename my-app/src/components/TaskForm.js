@@ -13,7 +13,7 @@ export default function TaskForm({onAdd}) {
       <input type="text"
              value={taskName}
              onChange={ev => setTaskName(ev.target.value)}
-             placeholder="Your next task..."/>
+             placeholder="Add List..."/>
     </form>
   );
 }
