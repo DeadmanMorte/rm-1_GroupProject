@@ -32,6 +32,7 @@ const CustomForm = () => {
                 required
                 autoFocus
                 maxLength={250}
+                minLength={1}
                 placeholder="Enter Task"
                 />
                 </div>

@@ -13,6 +13,10 @@ export default function TaskForm({onAdd}) {
       <input type="text"
              value={taskName}
              onChange={ev => setTaskName(ev.target.value)}
+             required
+                autoFocus
+                maxLength={250}
+                minLength={1}
              placeholder="Add List..."/>
     </form>
   );
