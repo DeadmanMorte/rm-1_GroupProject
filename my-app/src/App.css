@@ -16,7 +16,7 @@ form{
     display:flex;
 }
 form input[type="text"] {
-    font-size: 32px;
+    font-size: 15px;
     background: none;
     color:rgb(255, 252, 252);
     border:0;
