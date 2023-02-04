@@ -14,9 +14,12 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   ToDo.init({
+    todo_id: {
+        type: DataTypes.INTEGER,
+        primaryKey:true,
+    },
     todo_item: {
         type: DataTypes.STRING,
-        primaryKey:true,
         allowNull:false
     },
   }, {

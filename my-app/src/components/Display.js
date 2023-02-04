@@ -9,16 +9,16 @@ const DisplayComponent = () => {
 
   // Fetch the tasks from the backend when the component is mounted
   useEffect(() => {
-    fetch('<backend_url>/tasks')
+    fetch('http://localhost:3001/todo')  //<backend_url>/tasks
       .then(response => response.json())
       .then(data => setTasks(data))
       .catch(error => console.error(error));
   }, []);
 
   // Function to add a new task
-  const addTask = task => {
+  const addTask = async task => {
     // Make a post request to the backend to add the task
-    fetch('<backend_url>/tasks', {
+    await fetch('http://localhost:3001/todo', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -33,7 +33,7 @@ const DisplayComponent = () => {
   // Function to update a task
   const updateTask = task => {
     // Make a put request to the backend to update the task
-    fetch(`<backend_url>/tasks/${task.id}`, {
+    fetch(`http://localhost:3001/todo/${task.id}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json'
@@ -50,7 +50,7 @@ const DisplayComponent = () => {
   // Function to delete a task
   const deleteTask = id => {
     // Make a delete request to the backend to delete the task
-    fetch(`<backend_url>/tasks/${id}`, {
+    fetch(`http://localhost:3001/todo/${id}`, {
       method: 'DELETE'
     })
       .then(() => {
