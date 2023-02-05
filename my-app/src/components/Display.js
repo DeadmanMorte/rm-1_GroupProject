@@ -3,6 +3,39 @@ import React, { useState, useEffect } from 'react';
 const Display = () => {
 
   const [todos, setTodos] = useState([]);
+  const [description,setDescription] = useState('')
+
+  const deleteTodo = async (id) => {
+    try{
+      const deleteTodo = await fetch(`http://localhost:3001/todo/${id}`, {
+        method: "DELETE"
+      });
+
+      window.location = '/'
+    } catch (err) {
+      console.log(err)
+    }
+  }
+
+  const editTodo = async (id) => {
+   try { 
+    const updateTodo = window.prompt('What would you like to change the task to?')
+    setDescription(updateTodo)
+    const body = {description}
+
+    const response = await fetch(`http://localhost:3001/todo/${id}`,{
+        method: "PUT",
+        // headers: {"Content-Type": "application/json"},
+        body: JSON.stringify(body)
+    });
+    console.log(body,id)
+
+    //  window.location = '/'
+   } catch (err) {
+        console.log(err)
+   }
+}
+
   const getTodos = async () => {
     try {
       const response = await fetch('http://localhost:3001/todo');
@@ -12,17 +45,30 @@ const Display = () => {
       console.error(err)
     }
   }
+
   useEffect(() => {
     getTodos();
   }, []);
-console.log(todos)
+
 return (
     <table className='ShowTodos'>
     <div>
       
       {todos.map(todo => (
       <ul key={todo.todo_id}>
-      <li>{todo.todo_item}</li>
+      <li>{todo.todo_item}
+          <button onClick={() => deleteTodo(todo.todo_id)}>
+            Delete
+            </button>
+            <button 
+                className="btn"
+                aria-label="Edit Task"
+                type="button"
+                onClick={() => editTodo(todo.todo_id)}
+                >
+                Edit Task
+                </button>
+        </li>
       </ul>))}
       </div>
     </table>

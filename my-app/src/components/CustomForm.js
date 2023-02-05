@@ -1,4 +1,4 @@
-/*
+
 import React, { useState } from "react";
 
 
@@ -14,11 +14,13 @@ const CustomForm = () => {
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify(body)
         });
+        
         window.location = '/'
        } catch (err) {
-
+            console.log(err)
        }
     }
+
     return (
 
         <form
@@ -51,4 +53,3 @@ const CustomForm = () => {
     
 }
 export default CustomForm
-*/

@@ -3,8 +3,7 @@ import './App.css';
 import TaskForm from "./components/TaskForm";
 import Task from "./components/Task";
 import {useEffect, useState} from "react";
-
-//import CustomForm from './components/CustomForm';//
+import CustomForm from './components/CustomForm';//
 
 import TodoList from './components/toDoList';
 import Display from './components/Display';
@@ -76,7 +75,7 @@ function App() {
 
       
 
-
+      <CustomForm />
       <Display />
 
     </main>

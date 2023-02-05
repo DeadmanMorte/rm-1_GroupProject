@@ -45,7 +45,7 @@ todo.put('/:id', async (req,res) => {
         const {description} = req.body;
         const {id} = req.params
         const reDo = await ToDo.update({
-        todo_item: `${description}`}, 
+        todo_item: `${description}`}, {fields: ['todo_item']},
         {where: {todo_id: `${id}`}
         }) 
 
