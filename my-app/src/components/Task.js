@@ -15,7 +15,6 @@ export default function Task({name,done,onToggle,onTrash,onRename}) {
         <form onSubmit={ev => {ev.preventDefault();setEditMode(false);}}>
           <input type="text" value={name}
                  onChange={ev => onRename(ev.target.value)} />
-
         </form>
       )}
       <button className="trash" onClick={onTrash}>
