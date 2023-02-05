@@ -1,7 +1,6 @@
 const todo = require('express').Router();
 const db = require('../models');
 const { ToDo, ToChat, ToBuy } = db;
-const { Op } = require('sequelize');
 
 
 // READ
@@ -45,7 +44,7 @@ todo.put('/:id', async (req,res) => {
         const {description} = req.body;
         const {id} = req.params
         const reDo = await ToDo.update({
-        todo_item: `${description}`}, {fields: ['todo_item']},
+        todo_item: `${description}`},
         {where: {todo_id: `${id}`}
         }) 
 

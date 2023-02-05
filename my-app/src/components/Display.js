@@ -19,13 +19,14 @@ const Display = () => {
 
   const editTodo = async (id) => {
    try { 
-    const updateTodo = window.prompt('What would you like to change the task to?')
-    setDescription(updateTodo)
-    const body = {description}
+    const updateTodo = window.prompt('What would you like to change the task to?');
+    await setDescription(updateTodo);
+    const body = {description};
+    console.log(body,id);
 
     const response = await fetch(`http://localhost:3001/todo/${id}`,{
         method: "PUT",
-        // headers: {"Content-Type": "application/json"},
+        headers: {"Content-Type": "application/json"},
         body: JSON.stringify(body)
     });
     console.log(body,id)

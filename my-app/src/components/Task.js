@@ -1,7 +1,7 @@
 import Checkbox from "./Checkbox";
 import {useState, useEffect} from "react";
 
-export default function Task({name,done,onToggle,onTrash,onRename}) {
+export default function Task({todo_item,done,onToggle,onTrash,onRename}) {
   const [editMode,setEditMode] = useState(false);
 
   useEffect(() => {
@@ -19,12 +19,12 @@ export default function Task({name,done,onToggle,onTrash,onRename}) {
       <Checkbox checked={done} onClick={() => onToggle(!done)} />
       {!editMode && (
         <div className="task-name" onClick={() => setEditMode(prev => !prev)}>
-          <span>{name}</span>
+          <span>{todo_item}</span>
         </div>
       )}
       {editMode && (
         <form onSubmit={ev => {ev.preventDefault();setEditMode(false);}}>
-          <input type="text" value={name}
+          <input type="text" value={todo_item}
                  onBlur={handleBlur}
                  onChange={ev => onRename(ev.target.value)} />
         </form>
