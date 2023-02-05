@@ -3,20 +3,6 @@ import {useState} from "react";
 
 export default function Task({name,done,onToggle,onTrash,onRename}) {
   const [editMode,setEditMode] = useState(false);
-
-  const handleClickOutside = (event) => {
-    if (event.target.className !== 'task-name' && editMode) {
-      setEditMode(false);
-    }
-  };
-
-  useEffect(() => {
-    document.addEventListener("click", handleClickOutside);
-    return () => {
-      document.removeEventListener("click", handleClickOutside);
-    };
-  }, [editMode]);
-
   return (
     <div className={'task ' + (done?'done':'')}>
       <Checkbox checked={done} onClick={() => onToggle(!done)} />
