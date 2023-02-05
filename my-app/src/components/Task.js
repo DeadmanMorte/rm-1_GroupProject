@@ -1,8 +1,19 @@
 import Checkbox from "./Checkbox";
-import {useState} from "react";
+import {useState, useEffect} from "react";
 
 export default function Task({name,done,onToggle,onTrash,onRename}) {
   const [editMode,setEditMode] = useState(false);
+
+  useEffect(() => {
+    if (editMode) {
+      const input = document.querySelector('.task input');
+      input.focus();
+      input.setSelectionRange(input.value.length, input.value.length);
+    }
+  }, [editMode]);
+
+  const handleBlur = () => setEditMode(false);
+
   return (
     <div className={'task ' + (done?'done':'')}>
       <Checkbox checked={done} onClick={() => onToggle(!done)} />
@@ -14,8 +25,8 @@ export default function Task({name,done,onToggle,onTrash,onRename}) {
       {editMode && (
         <form onSubmit={ev => {ev.preventDefault();setEditMode(false);}}>
           <input type="text" value={name}
+                 onBlur={handleBlur}
                  onChange={ev => onRename(ev.target.value)} />
-
         </form>
       )}
       <button className="trash" onClick={onTrash}>
