@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import TodoEdit from "./ToDoEdit";
+// import ToDoEdit from "./toDoEdit";
 
 
 const TodoList = () => {
@@ -7,7 +7,7 @@ const TodoList = () => {
   //delete todo function
   const deleteTodo = async (id) => {
     try {
-      const deleteTodo = await fetch(`http://localhost:5000/todos/${id}`, {
+      const deleteTodo = await fetch(`http://localhost:3001/todos/${id}`, {
         method: "DELETE"
       });
 
@@ -20,7 +20,7 @@ const TodoList = () => {
 
   const getTodos = async() => {
     try {
-      const response = await fetch("http://localhost:5000/todos")
+      const response = await fetch("http://localhost:3001/todos")
       const jsonData = await response.json()
 
       setTodos(jsonData);
@@ -40,7 +40,7 @@ const TodoList = () => {
       <ul key={todo.todo_id}>
       <li>{todo.description}</li>
       <li>
-            <TodoEdit todo={todo}/>
+            {/* <TodoEdit todo={todo}/> */}
           <button onClick={() => deleteTodo(todo.todo_id)}>
             Delete
             </button>

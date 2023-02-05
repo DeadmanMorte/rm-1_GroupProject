@@ -7,7 +7,19 @@ const { Op } = require('sequelize');
 // READ
 todo.get('/', async(req,res) => {
     try {
-        const foundItem = await ToDo.findAll()
+        const foundItems = await ToDo.findAll()
+        res.status(200).json(foundItems)
+    } catch (error) {
+        res.status(500).json(error)
+    }
+});
+
+todo.get('/:id', async(req,res) => {
+    try {
+        const {id} = req.params
+        const foundItem = await ToDo.findOne({
+            where: {todo_id: `${id}`}
+        })
         res.status(200).json(foundItem)
     } catch (error) {
         res.status(500).json(error)
@@ -16,37 +28,29 @@ todo.get('/', async(req,res) => {
 
 // CREATE
 todo.post('/', async(req,res) => {
-//     try {
-//         const newDo = await ToDo.create(req.body) 
-
-//         res.status(200).json({
-//             message: 'Successful appendage of todo!!',
-//             data: newDo
-//         })
-//     } catch (error){
-//         res.status(500).json(error)
-//     }
-// });
 try{
-
     const {description} = req.body;
     const newTodo = await ToDo.create({
-        todo_item: `${description}`});
+        todo_item: `${description}`}, { fields: ['todo_item']});
     res.json(newTodo.rows[0]);
     window.location = '/'
 } catch (err) {
-    console.error(err.message)
+    res.status(500).json(err.message)
 }})
 
 
 // UPDATE
 todo.put('/:id', async (req,res) => {
     try {
-        const reDo = await ToDo.update(req.body) 
+        const {description} = req.body;
+        const {id} = req.params
+        const reDo = await ToDo.update({
+        todo_item: `${description}`}, 
+        {where: {todo_id: `${id}`}
+        }) 
 
         res.status(200).json({
-            message: 'Successful ammendment of todo!!',
-            data: reDo
+            message: 'Successful ammendment of todo!!'
         })
     } catch (error) {
         res.status(500).json(error)
@@ -57,7 +61,8 @@ todo.put('/:id', async (req,res) => {
 
 todo.delete('/:id', async (req,res) => {
     try {
-        const noDo = await ToDo.destroy(req.body) 
+        const {id} = req.params
+            const noDo = await ToDo.destroy({where: {todo_id: `${id}`}}) 
 
         res.status(200).json({
             message: 'Successful abolition of todo!!',

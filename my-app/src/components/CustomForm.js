@@ -7,7 +7,7 @@ const CustomForm = () => {
 
     const handleFormSubmit = async e => {
         e.preventDefault();
-       try {
+       try { 
         const body = {description};
         const response = await fetch("http://localhost:3001/todo",{
             method: "POST",

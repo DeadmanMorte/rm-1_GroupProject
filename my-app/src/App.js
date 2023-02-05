@@ -3,8 +3,12 @@ import './App.css';
 import TaskForm from "./components/TaskForm";
 import Task from "./components/Task";
 import {useEffect, useState} from "react";
-//import CustomForm from './components/CustomForm';
-//
+
+//import CustomForm from './components/CustomForm';//
+
+import TodoList from './components/toDoList';
+import Display from './components/Display';
+
 
 
 function App() {
@@ -69,7 +73,12 @@ function App() {
               onTrash={() => removeTask(index)}
               onToggle={done => updateTaskDone(index, done)} />
       ))}
+
       
+
+
+      <Display />
+
     </main>
     //custom form component - <CustomForm /> - was taken out right above the closing tag of main- seems second custom form wasnt doing anything so i i removed the component from here, commented out the immport in taskForm and commented out all of navbar//
 
