@@ -19,7 +19,7 @@ console.log(todos)
 return (
     <table className='ShowTodos'>
     <div>
-      <h1>My Tasks</h1>
+      
       {todos.map(todo => (
       <ul key={todo.todo_id}>
       <li>{todo.todo_item}</li>
