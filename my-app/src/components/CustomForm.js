@@ -1,4 +1,6 @@
+/*
 import React, { useState } from "react";
+
 
 const CustomForm = () => {
     const [description, setDescription] = useState("");
@@ -18,6 +20,7 @@ const CustomForm = () => {
        }
     }
     return (
+
         <form
         className="todo"
         onSubmit={handleFormSubmit}
@@ -32,6 +35,7 @@ const CustomForm = () => {
                 required
                 autoFocus
                 maxLength={250}
+                minLength={1}
                 placeholder="Enter Task"
                 />
                 </div>
@@ -44,5 +48,7 @@ const CustomForm = () => {
                 </button>
         </form>
     )
+    
 }
 export default CustomForm
+*/
