@@ -18,6 +18,13 @@ export default function TaskForm({onAdd}) {
                 maxLength={250}
                 minLength={1}
              placeholder="Add List..."/>
+      <button 
+                className="btn"
+                aria-label="Add Task"
+                type="submit"
+                >
+                Add Task
+                </button>
     </form>
   );
 }
