@@ -3,14 +3,19 @@ import './App.css';
 import TaskForm from "./components/TaskForm";
 import Task from "./components/Task";
 import {useEffect, useState} from "react";
-import CustomForm from './components/CustomForm';//
-
-import TodoList from './components/toDoList';
-import Display from './components/Display';
 
 
 function App() {
   const [tasks,setTasks] = useState([]);
+  const [description,setDescription] = useState('');
+
+  const handleEnter = (e) => {
+    console.log(this.todo_id)
+    if (e.key === 'Enter'){
+      renameTask(tasks.todo_id) 
+      console.log(this.todo_id)
+    } 
+    }
 
   //Read
 
@@ -69,25 +74,22 @@ function App() {
   const numberComplete = tasks.filter(t => t.done).length;
   const numberTotal = tasks.length;
 
-  
 
-  function renameTask( index, newName, id) {
+// Edit
+  async function renameTask (newName, id) {
+      const body = {newName}
+      console.log(newName)
       try {
-        setTasks(prev => {
-          const newTasks = [...prev];
-          newTasks[index].name = newName;
-          return newTasks;
-        })
-        // const body = {newName}
-        //   const response =  await fetch(`http://localhost:3001/todo/${id}`,{
-        //       method: "PUT",
-        //       headers: {"Content-Type": "application/json"},
-        //       body: JSON.stringify(body)
-        //   });
+          const response =  await fetch(`http://localhost:3001/todo/${id}`,{
+              method: "PUT",
+              headers: {"Content-Type": "application/json"},
+              body: JSON.stringify(body)
+          });
        
-      //  console.log(body) 
+       console.log(body,id) 
        //  window.location = '/'
       } catch (err) {
+
            console.log(err)
       }
       
@@ -104,10 +106,13 @@ function App() {
       
       <TaskForm onAdd={addTask} />
       {tasks.map((task,index) => (
-        <Task {...task}
-              onRename={(newName) => renameTask(newName,task.todo_id)}
+        <Task description={description} setDescription = {setDescription}
+        task={task} setTasks={setTasks}
+          {...task}
+              // onRename={(newName) => renameTask(newName,task.todo_id)}
               onTrash={() => deleteTodo(task.todo_id)}
-              onToggle={done => updateTaskDone(index, done)} />
+              onToggle={done => updateTaskDone(index, done)}
+              onEnter={(e)=> handleEnter(e,renameTask)} />
       ))}
 
       

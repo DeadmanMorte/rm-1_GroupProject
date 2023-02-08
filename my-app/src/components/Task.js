@@ -1,8 +1,10 @@
 import Checkbox from "./Checkbox";
 import {useState, useEffect} from "react";
 
-export default function Task({todo_item,done,onToggle,onTrash,onRename}) {
+export default function Task({todo_item,done,onToggle,onTrash,onEnter},props) {
   const [editMode,setEditMode] = useState(false);
+  const [description,setDescription] = useState('');
+
 
   useEffect(() => {
     if (editMode) {
@@ -13,6 +15,8 @@ export default function Task({todo_item,done,onToggle,onTrash,onRename}) {
   }, [editMode]);
 
   const handleBlur = () => setEditMode(false);
+  
+    
 
   return (
     <div className={'task ' + (done?'done':'')}>
@@ -23,10 +27,12 @@ export default function Task({todo_item,done,onToggle,onTrash,onRename}) {
         </div>
       )}
       {editMode && (
-        <form onSubmit={ev => {ev.preventDefault();setEditMode(false);}}>
-          <input type="text" value={todo_item}
-                 onBlur={handleBlur}
-                 onChange={ev => onRename(ev.target.value)} />
+        <form onSubmit={ev => {ev.preventDefault();setEditMode(false);} }>
+          <input type="text" defaultValue={todo_item}
+                 onBlur={handleBlur} 
+                 onClick={console.log({description})}
+                onChange={e => setDescription(e.target.value)}
+                onKeyUp={e => onEnter(e)}/>
         </form>
       )}
       <button className="trash" onClick={onTrash}>
@@ -34,4 +40,5 @@ export default function Task({todo_item,done,onToggle,onTrash,onRename}) {
       </button>
     </div>
   );
+  console.log({description})
 }
