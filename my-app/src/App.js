@@ -11,7 +11,7 @@ import Display from './components/Display';
 
 
 function App() {
-  // example
+  
   const [tasks,setTasks] = useState([]);
 
   useEffect(() => {
