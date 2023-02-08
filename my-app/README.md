@@ -1,3 +1,44 @@
+To-Do-List Application
+
+Introduction:
+
+Welcome to the To-Do-List Application! This project was created to serve as a simple and efficient way to keep track of your tasks. With basic CRUD functionality, the objective of this application is to keep the user organized by providing the ability to add, edit, update, and delete tasks from their to-do-list.
+
+Team:
+
+This application was created by Isaac Kim, Anthony Diaz, and Tyler Williams, inspired by the need for all of us to be on track and on time.
+
+Getting Started:
+
+In order to use this application, simply add a task in the open field and click either the "+" button or the "Add task" button. Your task will then be sent to our Postgres server, where you will be able to see it added to the DOM. Once added, you can either check the task as complete by hitting the checkbox or delete the task by clicking the trash icon.
+
+Acknowledgements:
+
+We would like to give credit to the following link "https://youtu.be/ldYcgPKEZC8", as it helped in the coding process of this project.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
