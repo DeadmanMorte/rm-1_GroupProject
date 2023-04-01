@@ -27,9 +27,6 @@ app.get('/', (req,res) => {
     })
 });
 
-// app.get('*', (req,res) => {
-//     res.status(404).render('error404')
-// });
 
 // CONTROLLERS
 app.use('/tobuy', require('./controllers/tobuyController'));

@@ -1,10 +1,10 @@
 const tobuy = require('express').Router();
-const db = require('../models');
-const { ToDo, ToChat, ToBuy } = db;
-const { Op } = require('sequelize');
+const buydb = require('../models');
+const { ToBuy } = buydb;
+// const { Op } = require('sequelize');
 
 // READ
-tobuy.get('/', async (req,res) => {
+tobuy.get('/', async (req:any,res:any) => {
     try {
         res.status(200).json
     } catch (error) {
@@ -13,7 +13,7 @@ tobuy.get('/', async (req,res) => {
 });
 
 // CREATE
-tobuy.post('/', async(req,res) => {
+tobuy.post('/', async(req:any,res:any) => {
     try {
         const newBuy = await ToBuy.create(req.body) 
 
@@ -28,7 +28,7 @@ tobuy.post('/', async(req,res) => {
 
 
 // UPDATE
-tobuy.put('/:id', async (req,res) => {
+tobuy.put('/:id', async (req:any,res:any) => {
     try {
         const reBuy = await ToBuy.update(req.body) 
 
@@ -43,7 +43,7 @@ tobuy.put('/:id', async (req,res) => {
 
 // DELETE
 
-tobuy.delete('/:id', async (req,res) => {
+tobuy.delete('/:id', async (req:any,res:any) => {
     try {
         const noBuy = await ToBuy.destroy(req.body) 
 

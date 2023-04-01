@@ -1,19 +1,19 @@
 'use strict';
 
-const ToChat = require('../models/tochat');
+const ToDo = require('../models/todo');
 // import {OBJECT} from frontend
 
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up (queryInterface, Sequelize) {
-    await ToChat.create({
-      tochat_item: `${OBJECT}`,
+    await ToDo.create({
+      todo_item: `${Object}`,
     })
   },
 
   async down (queryInterface, Sequelize) {
-    await ToChat.destroy({
-      where: { tochat_item: `${OBJECT}` }
+    await ToDo.destroy({
+      where: { todo_item: `${Object}` }
     });
   }
 };

@@ -1,10 +1,10 @@
 const tochat = require('express').Router();
-const db = require('../models');
-const { ToDo, ToChat, ToBuy } = db;
-const { Op } = require('sequelize');
+const chatdb = require('../models');
+const {ToChat} = chatdb;
+// const { Op } = require('sequelize');
 
 // READ
-tochat.get('/', async (req,res) => {
+tochat.get('/', async (req:any,res:any) => {
     try {
         res.status(200).json
     } catch (error) {
@@ -13,7 +13,7 @@ tochat.get('/', async (req,res) => {
 });
 
 // CREATE
-tochat.post('/', async(req,res) => {
+tochat.post('/', async(req:any,res:any) => {
     try {
         const newChat = await ToChat.create(req.body) 
 
@@ -28,7 +28,7 @@ tochat.post('/', async(req,res) => {
 
 
 // UPDATE
-tochat.put('/:id', async (req,res) => {
+tochat.put('/:id', async (req:any,res:any) => {
     try {
         const reChat = await ToChat.update(req.body) 
 
@@ -43,7 +43,7 @@ tochat.put('/:id', async (req,res) => {
 
 // DELETE
 
-tochat.delete('/:id', async (req,res) => {
+tochat.delete('/:id', async (req:any,res:any) => {
     try {
         const noChat = await ToChat.destroy(req.body) 
 
