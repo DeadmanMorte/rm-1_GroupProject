@@ -16,7 +16,22 @@ Acknowledgements:
 
 We would like to give credit to the following link "https://youtu.be/ldYcgPKEZC8", as it helped in the coding process of this project.
 
+Technologies:
 
+Within this application we utilized Sequelize, PostgresSQL, Typescript and JavaScript, CSS, HTML, React and Bootstrap.
+
+Technical Information: 
+
+For startup, simply run nodemon or npm start in terminal of both the my-app terminal as well as the backend terminal. As this project was composed by aspiring software engineers, there are numerous deficiencies within the project which we would appreciate help with. To do so, simply fork the project from one of our contributors' Github accounts, clone into a preffered working machine and work as you desire.
+
+Issues: 
+
+Currently the outstanding issues our project contains include insufficent typing for Typscript and minimal CRUD Update fuinctionality. Ideally, we would like to have the project eventually include full functionality not only for itself and the Todo lsit but one for the ToBuy shopping list as well as a ToChat contact/recontact list.
+
+
+API Documentation:
+
+For our project we designed it to be as simple as possible in order to implement the rudimentary concepts we have been learning. Towards this end our application has only two endpoints. The front end point includes the user facing UI wherein a user simply inputs a desired list item into the input area and selects the button to append the provided input unto the list to be saved and shown. The back end poiunt includes a SQL database to store and retrieve the provided input list items as well as any other inputs previously given. 
 
 
 
